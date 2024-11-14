@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+          box-sizing: border-box;  
+        }
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            font-family: Arial, sans-serif;
+            font-weight: 200;
+        }
+        header{
+            height: 100px;
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: xx-large;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+        }
+        #hero{
+            height: 800px;
+            overflow: hidden;
+            background-color: orange;
+
+        }
+        main, section{
+            padding: 40px;
+            color: white;
+            position: relative;
+            background-color: black;
+            margin-top: -5px;
+            z-index: 100;    
+            }
+        #taustascroll{
+            background-color: orange;
+            height: 300px;
+            background-image: url(img/2203_w026_n002_1496b_p1_1496.jpg);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+            position: relative;
+        }
+        .layer{
+            height: inherit;
+            width: 100%;
+            background-repeat: no-repeat;
+            position: fixed;
+            top: 100px;
+            background-size:contain;
+
+
+        }
+        .layer1{
+            background-image: url(img/cave-vector-cartoon-background_100478-544.jpg);
+            background-position:  top center;
+            background-size: 200%;
+        }
+        .layer2{
+            background-image: url(img/beautiful-glowing-gray-full-moon-removebg-preview.png);
+            background-position: top;
+            background-size: 30%;
+        }
+        .layer3{
+            background-image: url(img/IMG_2883kp-scaled-removebg-preview.png);
+            background-position: top;
+            background-size: 100%;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <header>My start parallex</header>
+    <h1>start</h1>
+    <div id="hero">
+        <div class="layer layer1" data-type="parallax" data-speed="5"></div>
+        <div class="layer layer2" data-type="parallax" data-speed="10"></div>
+        <div class="layer layer3" data-type="parallax" data-speed="25"></div>
+        <div class="layer layer4" data-type="parallax" data-speed="50"></div>
+
+
+    </div>
+    <main>
+        <h1>my parallex start</h1>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt dolorem corporis aspernatur molestias. Minima ea, rem aliquam consequuntur quo libero sed officia neque numquam tenetur natus molestias dicta deleniti dolores?
+        Omnis enim tenetur, deleniti beatae reprehenderit porro? Laudantium deserunt aspernatur quasi magni voluptas nostrum! Voluptatem incidunt exercitationem animi, dolor nobis adipisci non itaque aut, eveniet saepe recusandae sint voluptas minima.
+        Cumque nesciunt eos molestiae? Vero, doloremque aperiam ex facere fugit doloribus nam minima deserunt, necessitatibus rem mollitia animi dolorum nobis illum est temporibus assumenda voluptate! Numquam sint aliquam blanditiis expedita!
+        </div>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae doloribus reprehenderit sed ratione praesentium, similique ducimus error accusamus. Voluptate, ullam. Maiores cupiditate, quisquam alias quo error magnam ab voluptas aliquid!
+        Ea delectus quibusdam cumque veniam sit, voluptate doloremque, quaerat cum quis magni et in nostrum repellat cupiditate a odit! Sit officiis eos optio harum laudantium ipsam omnis voluptatum consequuntur necessitatibus!
+        </div>
+    </main>
+    <div id="taustascroll"></div>
+    <section>
+        <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil enim cum voluptates placeat vitae? Non praesentium minus aliquam cum, totam ex. Nulla incidunt unde possimus praesentium, nemo ex porro numquam.
+        Error quasi magnam cupiditate reiciendis ad dolore aperiam, adipisci repellendus nulla tempora ipsam voluptate! Molestias quae facilis sunt, eveniet ipsam omnis, deleniti, dolorum eligendi ipsa similique repellat vel rerum perferendis.
+        Id iste rerum vero, ab iusto consequatur nihil. Dolorem voluptates cumque ea adipisci, eveniet sint dolores amet, natus ullam porro, ab est asperiores consectetur facere reiciendis quae architecto eos numquam.</div>
+    </section>
+    <script>
+        	window.addEventListener("scroll", function(event){
+
+            var top = this.scrollY;
+            var layers = document.querySelectorAll("[data-type='parallax']");
+            console.log(top);
+            console.log(layers);
+
+            var layer, speed, yPos;
+            for (var i = 0; i < layers.length; i++) {
+                layer = layers[i];
+                speed = layer.getAttribute('data-speed');
+                var yPos = -(top * speed / 100);
+                layer.setAttribute('style', 'transform: translate3d(0px, ' + yPos + 'px, 0px)');
+
+            }
+            });
+    </script>
+</body>
+</html>
